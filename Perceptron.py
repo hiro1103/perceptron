@@ -79,3 +79,15 @@ plt.ylabel('petal length [cm]')
 plt.legend(loc='upper left')
 # 図の表示
 plt.show()
+
+# パーセプトロンのオブジェクトの生成（インスタンス化)
+ppn = Perceptron(eta=0.1, n_iter=10)
+# 訓練データへのモデルの適合
+ppn.fit(X, y)
+# エポックと誤分類の関係を表す折れ線グラフのプロット
+plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
+# 軸のラベルの設定
+plt.xlabel('Epochs')
+plt.ylabel('Number of update')
+# 図の表示
+plt.show()
