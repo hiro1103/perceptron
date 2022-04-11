@@ -3,6 +3,8 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class Perceptron(object):
@@ -164,5 +166,13 @@ plt.title('Adaline - Gradient Descent')
 plt.xlabel('sepal length [standardized]')
 plt.ylabel('petal length [standardized]')
 plt.legend(loc='upper left')
+plt.tight_layout()
+plt.show()
+# エポック数とコストの関係を表す折れ線グラフのプロット
+plt.plot(range(1, len(ada_gd.cost_)+1), ada_gd.cost_, marker='o')
+# 軸のラベルの設定
+plt.xlabel('Epochs')
+plt.ylabel('Sum-squared-error')
+# 図の表示
 plt.tight_layout()
 plt.show()
